@@ -8,8 +8,8 @@ function Education() {
         {(fields, { add, remove }) => {
           return (
             <div>
-              <div className="flex gap-5 items-center">
-                <h1 className="text-lg font-bold textgray-500">Education</h1>
+              <div className="flex gap-5 items-center mb-5">
+                {/* <h1 className="text-lg font-bold textgray-500">Education</h1> */}
                 <Button size="small" onClick={() => add()}>
                   {" "}
                   Add education
@@ -17,7 +17,7 @@ function Education() {
               </div>
               <div className="flex flex-col gap-5">
                 {fields.map((field, index) => (
-                  <div className="grid grid-cols-3 gap-5">
+                  <div className="grid grid-cols-4 gap-5 items-end">
                     <Form.Item
                       label="Qualification"
                       name={[field.name, "qualification"]}
@@ -30,7 +30,12 @@ function Education() {
                     >
                       <Input />
                     </Form.Item>
-                    <Trash2 />
+                    <Button
+                      onClick={() => remove(field.name)}
+                      className="w-max"
+                    >
+                      <Trash2 size={16} />
+                    </Button>
                   </div>
                 ))}
               </div>

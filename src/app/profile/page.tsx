@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Tabs } from "antd";
 import Basic from "./_components/basic";
 import Experience from "./_components/experience";
@@ -8,10 +8,16 @@ import Skills from "./_components/skills";
 import { Form, Input } from "antd";
 function ProfilePage() {
   const [activeTab, setActiveTab] = React.useState("1");
+
   return (
     <div>
       <h1 className="text-lg font-bold ">Profile</h1>
-      <Form layout="vertical">
+      <Form
+        layout="vertical"
+        onValuesChange={(changedValues, allValues) => {
+          console.log(allValues);
+        }}
+      >
         <Tabs
           defaultActiveKey="1"
           activeKey={activeTab}
